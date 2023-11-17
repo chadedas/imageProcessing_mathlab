@@ -5,7 +5,8 @@ close all;
 randomX = uint16(0);
 randomY = uint16(0);
 
-%ที่ต้องทำคือสลับแกน X , Y ทุกส่วน
+%ที่ต้องทำคือห้ามให้สีทับกัน ก็คือเช็คระยะของตำแหน่ง บวกด้วยระยะสี
+%ห่างกันได้ห้ามน้อยกว่า 2pixel
 %size%
 
 %ขนาดสนามบอล
@@ -93,6 +94,8 @@ while (true)
                 locationSaveX = randomX;
                 locationSaveY = randomY;
                 break;
+                                else
+                    fprintf('Genaretion location again!!\n');
             end
         end
         if randomX <= (fieldSizeX-goalSizeX/2)-border && (randomX >= (border+goalSizeX/2))
@@ -100,10 +103,14 @@ while (true)
                locationSaveX = randomX;
                locationSaveY = randomY;
                break;
+                               else
+                    fprintf('Genaretion location again!!\n');
            end
             
            if randomY <= (fieldSizeY-goalSizeY/2)-border && randomY >= (fieldSizeY-goalSizeY/2)-border-(goalSizeY)
            break;
+                           else
+                    fprintf('Genaretion location again!!\n');
            end  
         end
         if randomX <= (fieldSizeX-goalSizeX/2)-border && randomX >= (fieldSizeX-goalSizeX/2)-border-(goalSizeX)
@@ -117,6 +124,8 @@ while (true)
          end
      end
 end 
+
+
                         field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,1)=goal(:,:,1);
                         field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,2)=goal(:,:,2);
                         field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,3)=goal(:,:,3);
