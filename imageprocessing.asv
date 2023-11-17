@@ -189,7 +189,7 @@ while (true)
      end
 end 
     %นำ goal ที่สร้าง ลงไปในพื้นที่สนาม field ตามค่าที่สุ่มได้
-	field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,1)=goal(:,:,1);
-	field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,2)=goal(:,:,2);
-	field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,3)=goal(:,:,3);
-	figure,imshow(field);
+                        field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,1)=goal(:,:,1);
+                        field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,2)=goal(:,:,2);
+                        field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,3)=goal(:,:,3);
+                        figure,imshow(field);
