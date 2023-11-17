@@ -90,14 +90,16 @@ while (true)
     if (locationSaveX ~= randomX && locationSaveY ~= randomY)
         if (randomX >= (border+goalSizeX/2) && randomX <= (border+goalSizeX/2)+(goalSizeX))
             if randomY >= (border+goalSizeY/2) && randomY <= (border+goalSizeY/2)+(goalSizeY)
-                                    locationSaveX = randomX;
-                        locationSaveY = randomY;
+                locationSaveX = randomX;
+                locationSaveY = randomY;
                 break;
             end
         end
         if randomX <= (fieldSizeX-goalSizeX/2)-border && (randomX >= (border+goalSizeX/2))
            if randomY >= (border+goalSizeY/2) && randomY <= (border+goalSizeY/2)+(goalSizeY)
-           break;
+               locationSaveX = randomX;
+               locationSaveY = randomY;
+               break;
            end
             
            if randomY <= (fieldSizeY-goalSizeY/2)-border && randomY >= (fieldSizeY-goalSizeY/2)-border-(goalSizeY)
@@ -106,8 +108,8 @@ while (true)
         end
         if randomX <= (fieldSizeX-goalSizeX/2)-border && randomX >= (fieldSizeX-goalSizeX/2)-border-(goalSizeX)
                 if randomY <= (fieldSizeY-goalSizeY/2)-border && randomY >= ((fieldSizeY-goalSizeY/2)-border)-(goalSizeY)
-                                        locationSaveX = randomX;
-                        locationSaveY = randomY;
+                    locationSaveX = randomX;
+                    locationSaveY = randomY;
                     break;
                 else
                     fprintf('Genaretion location again!!\n');
@@ -117,4 +119,5 @@ while (true)
 end 
                         field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,1)=goal(:,:,1);
                         field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,2)=goal(:,:,2);
+                        field(randomX-(goalSizeX/2):(randomX+(goalSizeX/2))-1,(randomY-(goalSizeY/2)):(randomY+(goalSizeY/2))-1,3)=goal(:,:,3);
                         figure,imshow(field);
