@@ -1,9 +1,8 @@
-function field = placeInField(field, item, sizeX, sizeY)
-    % ตำแหน่งที่ควรวาง robot ใน field
-    % กำหนดค่าใน field ด้วยค่าจาก robot
-    field(x, y, 1) = item(:, :, 1);
-    field(x, y, 2) = item(:, :, 2);
-    field(x, y, 3) = item(:, :, 3);
-    
-end
+function field = placeInField(field, item, fieldData)
+    % กำหนดตำแหน่งใน field ตามข้อมูลใน fieldData
+    x_range = (fieldData.randomX-(fieldData.(item).SizeX/2)):(fieldData.randomX+(fieldData.(item).SizeX/2))-1;
+    y_range = (fieldData.randomY-(fieldData.(item).SizeY/2)):(fieldData.randomY+(fieldData.(item).SizeY/2))-1;
 
+    % กำหนดค่าใน field ตาม item ที่รับมา
+    field(x_range, y_range, :) = fieldData.(item).Color;
+end
