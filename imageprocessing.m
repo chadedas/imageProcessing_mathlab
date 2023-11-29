@@ -41,26 +41,26 @@ fieldData = struct(...
 %สนามบอล%
 field = uint8(zeros(fieldData.fieldSizeX, fieldData.fieldSizeY, 3));
 field(:, :, 1) = 0;
-field(:, :, 2) = 200; % เปลี่ยนค่าสี Green เป็น 200
-field(:, :, 3) = 15;
+field(:, :, 2) = 255; % เปลี่ยนค่าสี Green เป็น 200
+field(:, :, 3) = 0;
 
 %สร้างหุ่นยนต์
 robot = uint8(zeros(fieldData.robotSizeX, fieldData.robotSizeY, 3));
-robot(:, :, 1) = 50;
-robot(:, :, 2) = 30;
-robot(:, :, 3) = 255;
+robot(:, :, 1) = 255;
+robot(:, :, 2) = 255;
+robot(:, :, 3) = 0;
 
 %สร้างball
 ball = uint8(zeros(fieldData.ballSizeX, fieldData.ballSizeY, 3));
-ball(:, :, 1) = 150; % เปลี่ยนค่าสี Red เป็น 150
-ball(:, :, 2) = 0;
-ball(:, :, 3) = 150; % เปลี่ยนค่าสี Blue เป็น 150
+ball(:, :, 1) = 0; % เปลี่ยนค่าสี Red เป็น 150
+ball(:, :, 2) = 255;
+ball(:, :, 3) = 255; % เปลี่ยนค่าสี Blue เป็น 150
 
 %สร้างgoal
 goal = uint8(zeros(fieldData.goalSizeX, fieldData.goalSizeY, 3));
-goal(:, :, 1) = 200;
-goal(:, :, 2) = 150; % เปลี่ยนค่าสี Green เป็น 150
-goal(:, :, 3) = 45;
+goal(:, :, 1) = 255;
+goal(:, :, 2) = 0; % เปลี่ยนค่าสี Green เป็น 150
+goal(:, :, 3) = 255;
 
 
 field((fieldData.fieldSizeX/2)-(fieldData.ballSizeX/2):(fieldData.fieldSizeY/2)+((fieldData.ballSizeY/2)-1), ...
@@ -119,7 +119,6 @@ end
 	field(fieldData.randomX-(fieldData.goalSizeX/2):(fieldData.randomX+(fieldData.goalSizeX/2))-1,(fieldData.randomY-(fieldData.goalSizeY/2)):(fieldData.randomY+(fieldData.goalSizeY/2))-1,1)=goal(:,:,1);
 	field(fieldData.randomX-(fieldData.goalSizeX/2):(fieldData.randomX+(fieldData.goalSizeX/2))-1,(fieldData.randomY-(fieldData.goalSizeY/2)):(fieldData.randomY+(fieldData.goalSizeY/2))-1,2)=goal(:,:,2);
 	field(fieldData.randomX-(fieldData.goalSizeX/2):(fieldData.randomX+(fieldData.goalSizeX/2))-1,(fieldData.randomY-(fieldData.goalSizeY/2)):(fieldData.randomY+(fieldData.goalSizeY/2))-1,3)=goal(:,:,3);
-	figure,imshow(field);
-    
+    imwrite(field,'imageProcess/image.jpg', 'quality',100);
     processImage();
     

@@ -5,26 +5,26 @@ function processImage()
     
     % Convert to HSV
     imhsv = rgb2hsv(imrgb);
-
-% Separate field
-imf = separateColor(imhsv, 0.2, 0.8); % ปรับ lowerThresh และ upperThresh ตามความเหมาะสม
+    imf = separateColor(imhsv, 0.33, 0.35);
 
 % Separate car
-imc = separateColor(imhsv, 0.5, 0.9); % ปรับ lowerThresh และ upperThresh ตามความเหมาะสม
+    imc = separateColor(imhsv, 0.154, 0.2);
 
 % Separate goal
-imgo = separateColor(imhsv, -1, 0.3);
+    imgo = separateColor(imhsv, 0.825, 0.840);
 
 % Separate ball
-imfb = separateColor(imhsv, 0.1, 0.2); % ปรับ lowerThresh และ upperThresh ตามความเหมาะสม
+    imfb = separateColor(imhsv, 0.34, 0.55);
 
     % Display results
     figure;
-    subplot(2,2,1), imshow(imf), title('ImF');
-    subplot(2,2,2), imshow(imc), title('ImC');
-    subplot(2,2,3), imshow(imgo), title('Imgo');
-    subplot(2,2,4), imshow(imfb), title('Imfb');
+    invert = imc + imgo + imfb;
+    subplot(2,3,1), imshow(imf), title('Field');
+    subplot(2,3,2), imshow(invert), title('invert');
 
+    subplot(2,3,3), imshow(imc), title('Robot');
+    subplot(2,3,4), imshow(imgo), title('Goal');
+    subplot(2,3,5), imshow(imfb), title('Football');
 end
 
 function result = separateColor(imhsv, lowerThresh, upperThresh)
