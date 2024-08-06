@@ -1,0 +1,20 @@
+clear
+close all
+
+% A — Input array
+%vector | matrix | multidimensional array | table | timetable
+
+pic2 = imread("imageProcess/pic2.jpg");
+
+Row = 4;
+cal = 1;
+
+pic2_fliplr =
+subplot(cal, Row, 1), imshow(pic2), title("Original");
+subplot(cal, Row, 2), imshow(fliplr(pic2)), title("fliplr");
+subplot(cal, Row, 3), imshow(flipud(pic2)), title("flipud");
+subplot(cal, Row, 4), imshow(flipud(fliplr(pic2))), title("flipud + fliplr");
+
+
+%imrotate
+% ค่า - หมุนตามเข็ม , ค่าบวก หมุนทวนเข็ม

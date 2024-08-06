@@ -1,0 +1,11 @@
+pic = imread('C:\github\imageProcessing_mathlab\pic1.png');
+grayPic = rgb2gray(pic);
+[rows, cols] = size(grayPic);
+fftImg = fft2(double(grayPic),rows, cols);
+absImg = fftshift(abs(fftImg));
+spImg = absImg/max(absImg(:)) * 255;
+maxABS = max(absImg);
+figure(0);
+subplot(1,3,1), imshow(pic), title('Original');
+subplot(1,3,2), imshow(grayPic), title('grayPic');
+subplot(1,3,3), imshow(uint8(spImg)), title('FFT');
